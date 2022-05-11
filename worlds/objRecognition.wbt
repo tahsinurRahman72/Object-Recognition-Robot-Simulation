@@ -1,0 +1,341 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.04181389939622199 0.9448300060858086 0.3248812974259574 3.364892992458465
+  position -1.0019963796113216 2.56941367773504 -3.1949095140333457
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0.01 0
+  floorSize 3 3
+}
+Robot {
+  translation -0.131593 0.0447034 -0.675885
+  rotation 0.0015606895844352596 -0.9999987337303853 0.00031110391716237493 -0.004875307179585953
+  children [
+    DEF GpS GPS {
+      children [
+        Solid {
+          scale 0.6 0.6 0.6
+          children [
+            DEF GPS Shape {
+              appearance PBRAppearance {
+                baseColor 0.333333 0.666667 1
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.05
+              }
+            }
+          ]
+        }
+      ]
+    }
+    Camera {
+      translation 0 1.73472e-18 0.12
+      rotation 0 1 0 3.14159
+      scale 0.2 0.2 0.2
+      children [
+        DEF camera Shape {
+          appearance PBRAppearance {
+          }
+          geometry Sphere {
+            radius 0.1
+            subdivision 5
+          }
+        }
+      ]
+      name "cam"
+      fieldOfView 1
+      width 640
+      height 640
+      recognition Recognition {
+        frameThickness 2
+      }
+    }
+    DEF ds_left DistanceSensor {
+      translation 0.0364516 0 0.125
+      rotation 0 -1 0 1.27
+      scale 0.12 0.12 0.12
+      children [
+        DEF dstnt Shape {
+          appearance PBRAppearance {
+            metalness 0.15
+          }
+          geometry Box {
+            size 0.1 0.1 0.1
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE dstnt
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        1 1000 0
+      ]
+    }
+    DEF ds_right DistanceSensor {
+      translation -0.0364472 0 0.125
+      rotation 0 1 0 -1.87
+      scale 0.12 0.12 0.12
+      children [
+        DEF dstnt Shape {
+          appearance PBRAppearance {
+            metalness 0.15
+          }
+          geometry Box {
+            size 0.1 0.1 0.1
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE dstnt
+      physics Physics {
+      }
+      lookupTable [
+        0 0 0
+        1 1000 0
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 141.0559260264002
+        anchor 0.07997588886553092 0.005210469827476172 0.07008439037584903
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.07997588886553092 0.005210469827476172 0.07008439037584903
+        rotation -0.702871021404395 0.7023107498891562 -0.1128358890605003 3.3664931957069526
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid1"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 102.65604647584966
+        anchor -0.0799759 0.00521047 0.0700844
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0799759 0.00521047 0.0700844
+        rotation 0.6579036536610481 -0.6579060702805423 0.36650018443031934 2.438998959432836
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 141.05592837699052
+        anchor 0.0799759 0.00521047 -0.0700844
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0799759 0.00521047 -0.0700844
+        rotation -0.7028710885578797 0.7023108169882232 -0.11283505311203582 3.366491543545045
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 102.65604980901323
+        anchor -0.0799759 0.00521047 -0.0700844
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0799759 0.00521047 -0.0700844
+        rotation 0.6579040000835094 -0.6579064167042789 0.36649894069895117 2.439001152333901
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF Body Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.666667 0.498039
+        metalness 0.5
+      }
+      geometry Box {
+        size 0.14 0.05 0.25
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+    density 10
+  }
+  controller "amar_controller"
+}
+DEF Drum1 Solid {
+  translation -0.12 0.16 0.61
+  children [
+    DEF Drum Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0.5
+      }
+      geometry Cylinder {
+        height 0.3
+        radius 0.1
+      }
+    }
+  ]
+  boundingObject USE Drum
+  recognitionColors [
+    0.666667 0 0
+  ]
+}
+DEF Drum Solid {
+  translation -0.63 0.16 -1.12
+  children [
+    DEF Drum Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0.5
+      }
+      geometry Cylinder {
+        height 0.3
+        radius 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE Drum
+  recognitionColors [
+    0.666667 0 0
+  ]
+}
+DEF Britto Solid {
+  translation -1.14 0.21 -0.37
+  children [
+    DEF Bol Shape {
+      appearance PBRAppearance {
+        baseColor 0.145098 0.658824 1
+        metalness 0.5
+      }
+      geometry Sphere {
+        radius 0.2
+        subdivision 5
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Bol
+  recognitionColors [
+    0.666667 0 0
+  ]
+}
+DEF Baksho Solid {
+  translation 0.909542 0.15 -1.29222
+  rotation 0 1 0 3.46682e-06
+  children [
+    DEF Baksho Shape {
+      appearance PBRAppearance {
+        baseColor 0.145098 0.658824 1
+        metalness 0.5
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE Baksho
+  recognitionColors [
+    0.666667 0 0
+  ]
+}
+DEF Pill Solid {
+  translation 0.619543 0.19 -0.0922191
+  rotation 0 1 0 3.46682e-06
+  children [
+    DEF Pill Shape {
+      appearance PBRAppearance {
+        baseColor 0.145098 0.658824 1
+        metalness 0.5
+      }
+      geometry Capsule {
+        height 0.2
+        radius 0.09
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE Pill
+  recognitionColors [
+    0.666667 0 0
+  ]
+}
